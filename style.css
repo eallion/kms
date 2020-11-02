@@ -1,0 +1,57 @@
+/* Temas */
+.default-theme {
+  background-color: rgba(12, 12, 12, 1.0);
+  color: rgba(204, 204, 204, 1.0);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+.terminal {
+  width: 100%;
+  height: 100%;
+  font-family: "Consolas", monospace;
+  font-size: 16px;
+  /* font-size: 1em; */
+}
+.os-title {
+  height: 36px;
+  line-height: 36px;
+  background: #FFFFFF;
+  color: #000000;
+  display: inline-block;
+  width: 100%;
+}
+.os-title p {
+  height: 18px;
+  font-size: 18px;
+  float: left;
+}
+.os-title img {
+  height: 18px;
+  width: 24px;
+  float: left;
+  padding: 9px;
+}
+.os-info {
+  top:-36px;
+}
+
+.cursor {
+  display: none;
+}
+
+.line:last-child .cursor {
+  animation: blinker 1.1s infinite;
+  font-weight: bold;
+  display: unset;
+}
+
+@keyframes blinker {
+  0% { opacity: 0 }
+  49% { opacity: 0 }
+  50% { opacity: 1 }
+}
