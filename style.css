@@ -9,6 +9,9 @@
   margin: 0;
   text-decoration: none;
 }
+a,a:link,a:visited,a:hover,a:active {
+  color: rgba(204, 204, 204, 1.0);
+}
 
 .terminal {
   width: 100%;
