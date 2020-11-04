@@ -4,7 +4,7 @@ const OperatingSystem = {
 }
 
 var Terminal = {
-  input: " slmgr /ato",
+  input: "",
   lastInput: "",
   cursor: "_",
   driverLetter: "C",
