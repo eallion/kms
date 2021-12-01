@@ -30,8 +30,9 @@ a,a:link,a:visited,a:hover,a:active {
   width: 100%;
 }
 .os-title p {
+  font-family:"Microsoft Yahei,微软雅黑,-apple-system,BlinkMacSystemFont,helvetica neue,Helvetica,Arial,pingfang sc,hiragino sans gb,wenquanyi micro hei,segoe ui,sans-serif,serif;";
   height: 18px;
-  font-size: 18px;
+  font-size: 16px;
   float: left;
 }
 .os-title img {

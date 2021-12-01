@@ -1,6 +1,6 @@
 const OperatingSystem = {
-  version: "Microsoft Windows [版本 10.0.19042.685]",
-  copyRight: "(c) 2020 Microsoft Corportion. 保留所有权利。"
+  version: "Microsoft Windows [版本 10.0.22000.318]",
+  copyRight: "(c) Microsoft Corportion. 保留所有权利。"
 }
 
 var Terminal = {
