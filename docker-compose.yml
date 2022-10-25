@@ -1,0 +1,7 @@
+version: "3.0"
+services:
+  vlmcsd:
+    image: mikolatero/vlmcsd:latest
+    container_name: vlmcsd
+    ports:
+      - 1688:1688
