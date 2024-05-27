@@ -1,5 +1,5 @@
 const OperatingSystem = {
-  version: "Microsoft Windows [版本 10.0.19045.2846]",
+  version: "Microsoft Windows [版本 10.0.22631.3593]",
   copyRight: "(c) Microsoft Corportion. 保留所有权利。"
 }
 
