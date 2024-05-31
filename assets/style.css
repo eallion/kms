@@ -2,7 +2,7 @@
 .default-theme {
   background-color: rgba(12, 12, 12, 1.0);
   color: rgba(204, 204, 204, 1.0);
-  background-image: url(background.jpg);
+  background-image: url(background.webp);
   background-size: cover;
   background-repeat: no-repeat;
 }
