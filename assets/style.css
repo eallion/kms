@@ -5,6 +5,8 @@
   background-image: url(background.webp);
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
 }
 
 * {
@@ -19,34 +21,20 @@ a:visited,
 a:hover,
 a:active {
   text-decoration: underline;
-  color: #222 !important;
-  background-color: #fff;
+  color: currentColor;
   position: relative;
 }
 
-a:after {
-  content: "";
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  margin-left: 1px;
-  background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cg fill="white"%3E%3Cpath d="M15.64 7.025h-3.622v-2h7v7h-2v-3.55l-4.914 4.914l-1.414-1.414l4.95-4.95Z"%2F%3E%3Cpath d="M10.982 6.975h-6v12h12v-6h-2v4h-8v-8h4v-2Z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
-  fill:#fff;
-  background-size: cover;
-  background-color: transparent;
-  position: absolute;
-}
-
 .terminal {
-  width: 65%;
+  width: 50%;
   height: auto;
+  min-height: 512px;
   font-family: "Consolas", monospace;
   font-size: 16px;
   background-color: #282c34;
   border-radius: 0.5rem;
   margin: 0 auto;
   margin-top: 3rem;
-  padding-bottom: 5rem;
 }
 
 .os-title {
@@ -54,22 +42,40 @@ a:after {
   border-radius: 0.5rem;
   color: #eee;
   width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.os-title .os-title-logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 40px;
 }
 
-.os-title p {
+.os-title {
   font-family: "Microsoft Yahei,微软雅黑,-apple-system,BlinkMacSystemFont,helvetica neue,Helvetica,Arial,pingfang sc,hiragino sans gb,wenquanyi micro hei,segoe ui,sans-serif,serif;";
   line-height: 2.2;
   font-size: 12px;
   float: left;
 }
 
-.os-title img {
+.os-title .os-title-logo img {
   height: 1rem;
   padding-left: 0.5rem;
+}
+
+.os-title .os-title-tips {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  gap: 0.5rem;
+}
+
+.os-title .os-title-tips .tips {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .os-info {
@@ -80,6 +86,63 @@ a:after {
 
 .container {
   padding-left: 0.5rem;
+}
+
+.container .content {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  position: relative;
+  /* 添加相对定位 */
+}
+
+.container .content .code {
+  margin-left: 0.5rem;
+  position: relative;
+  /* 添加相对定位 */
+  color: rgba(204, 204, 204, 1.0);
+  text-decoration: none;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: rgba(204, 204, 204, 1.0);
+  color: #282c34;
+  padding: 10px 8px;
+  border-radius: 5px;
+  z-index: 1;
+  white-space: nowrap;
+  top: -40px;
+  /* 调整这个值以控制 tooltip 的位置 */
+  left: 180px;
+  /* 使 tooltip 与 code 左对齐 */
+  transform: translateX(0);
+  /* 确保 tooltip 与 code 左对齐 */
+}
+
+.tooltip_office {
+  left: 380px;
+}
+
+.code {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.code:hover+.tooltip,
+.tooltip:hover {
+  display: block;
+}
+
+.copy-button {
+  margin-left: 5px;
+  background-color: #282c34;
+  color: white;
+  border: none;
+  padding: 2px 5px;
+  cursor: pointer;
+  border-radius: 3px;
 }
 
 .line {
@@ -107,5 +170,210 @@ a:after {
 
   50% {
     opacity: 1
+  }
+}
+
+
+.notepad {
+  width: 50%;
+  height: auto;
+  min-height: 512px;
+  height: calc(100vh - 200px);
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  box-shadow: 5px 5px 20px #444;
+  margin: 0 auto;
+  margin-top: 3rem;
+  display: none;
+}
+
+.head {
+  height: 32px;
+  width: 100%;
+  background: white;
+  display: flex;
+  padding-left: 8px;
+  box-sizing: border-box;
+  align-items: center;
+  cursor: default;
+  user-select: none;
+}
+
+.head .container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.head .container.center {
+  justify-content: center;
+}
+
+.head .container.right {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.head .container.right .material-icons {
+  font-size: 17px;
+  height: 100%;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head .container.right .material-icons:nth-child(1) {
+  padding-bottom: 7px;
+  box-sizing: border-box;
+}
+
+.head .container.right .material-icons:nth-child(2) {
+  font-size: 13px;
+}
+
+.head .container.right .material-icons:hover {
+  background: #E5E5E5;
+}
+
+.head .container.right .material-icons:hover:nth-child(3) {
+  background: red;
+  color: white;
+}
+
+.head .container.left {
+  overflow: hidden;
+}
+
+.head img {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+}
+
+.toolbar {
+  height: 22px;
+  width: 100%;
+  border-bottom: 1px solid #F0F0F0;
+  background: white;
+}
+
+.toolbar span {
+  font-size: 11px;
+  box-sizing: border-box;
+  padding: 5px 8px;
+  height: 100%;
+  user-select: none;
+  display: inline-block;
+}
+
+.toolbar span:hover {
+  background: #E5F3FF;
+  cursor: default;
+}
+
+textarea {
+  border: none;
+  resize: none;
+  width: calc(100% - 10px);
+  height: calc(100% - 76px);
+  overflow-x: scroll;
+  overflow-y: scroll;
+  font-size: 16px;
+  padding: 10px 0 0 10px;
+}
+
+textarea:focus {
+  outline: none !important;
+}
+
+.bottom-toolbar {
+  background: #F0F1F0;
+  height: 22px;
+  width: calc(100% + 4px);
+  margin-top: -2px;
+  border-top: 1px solid #D7D7D7;
+  display: flex;
+}
+
+.bottom-toolbar div {
+  flex: 1;
+  border-left: 1px solid #D7D7D7;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.bottom-toolbar div:nth-child(1) {
+  flex: 2;
+}
+
+.bottom-toolbar div:nth-child(3) {
+  flex: 0.4;
+}
+
+/* 弹出公告 */
+/* 半透明背景层 */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* 提示信息框 */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  text-align: center;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.modal-content p {
+  white-space: nowrap;
+}
+
+/* 确定按钮 */
+.modal button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 1366px) {
+
+  .terminal,
+  .notepad {
+    width: 95%;
   }
 }

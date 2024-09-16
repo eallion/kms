@@ -7,31 +7,124 @@
     <link rel="shortcut icon" href="assets/favicon.ico" />
   </head>
   <body class="default-theme">
+    <!-- 半透明背景层 -->
+    <div class="overlay" id="overlay"></div>
+  
+    <!-- 提示信息框 -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+          <p>本站是非官方 VL 版本的 Windows 系统批量激活服务。</p>
+          <p>【免费】本服务完全免费，<code>telnet kms.eallion.com 1688</code> 检测是否可用。</p>
+          <p>请从 <a href="https://next.itellyou.cn/" target="_blank" rel="noopener noreferrer">next.itellyou.cn</a> 下载原版系统，批量激活的 Key 请从 🔑 <a href="https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys"
+              target="_blank" rel="noopener noreferrer" title="KMS 客户端安装密钥" alt="KMS 客户端安装密钥">kms-client-activation-keys</a>
+            获取。</p>
+          <p>建议购买正版 Windows：👉 <a href="https://lizhi.shop/site/products/id/642?cid=1ad8oejz"
+            target="_blank" rel="noopener noreferrer" title="正版 Windows" alt="正版 Windows">lizhi.shop</a></p>
+      </div>
+      <button id="confirmBtn" type="button">确定</button>
+    </div>
+
     <div class="terminal">
       <div class="os-title">
-        <img src="assets/terminal.svg" alt>
-        <p>管理员：命令提示符</p>
+        <div class="os-title-logo">
+          <img src="assets/terminal.svg" alt>
+          <p>管理员：命令提示符</p>
+        </div>
+        <div class="os-title-tips">
+          <div id="tips" class="tips">💡[教程] 激活方法</div>
+          <div class="">/ 去激活 <a href="/office.html" target="_self" title="去激活 Office" alt="去激活 Office">Office</a></div>
+        </div>
       </div>
+
       <div class="os-info"></div>
       <!-- The .line will be created here -->
+
       <div class="container">
-        C:\Windows\system32> wmic os get caption<br>
-        Caption<br>
-        Microsoft Windows 10 专业工作站版<br>
-        <br>
-        C:\Windows\system32> slmgr /upk<br>
-        <br>
-        C:\Windows\system32> slmgr /ipk <a href="https://docs.microsoft.com/zh-cn/windows-server/get-started/kmsclientkeys" target="_blank" rel="noopener" title="KMS 客户端安装密钥" alt="KMS 客户端安装密钥">NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J</a><br>
-        <br>
-        C:\Windows\system32> slmgr /skms kms.eallion.com<br>
-        <br>
-        C:\Windows\system32> slmgr /ato<br>
-        <br>
-        C:\Windows\system32> slmgr /dlv<br>
-        <br>
-        C:\Windows\system32> ls<br>
-        <span>'ls' 不是内部或外部命令，也不是可运行的程序或批处理文件。输入 help 查看可用命令。去激活 <a href="/office.html" target="_self" title="KMS 客户端安装密钥" alt="KMS 客户端安装密钥">Office</a></span><br>
-        <br>
+        <div class="content">C:\Windows\system32> <div class="code" data-tooltip="tooltip1">slmgr /upk</div>
+          <div id="tooltip1" class="tooltip">如果不是 VL 版，需要用此命令卸载原来的 Key。<button class="copy-button" type="button"
+              onclick="copyToClipboard('slmgr /upk')">复制命令</button></div>
+        </div>
+        <div class="content">C:\Windows\system32> <div class="code" data-tooltip="tooltip2">slmgr /ipk NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J</div>
+          <div id="tooltip2" class="tooltip">安装 Key。获取 Key：<a
+            href="https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys" target="_blank"
+            rel="noopener" title="KMS 客户端安装密钥" alt="KMS 客户端安装密钥">kms-client-activation-keys</a><button class="copy-button" type="button"
+              onclick="copyToClipboard('slmgr /ipk NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J')">复制命令</button></div>
+        </div>
+        <div class="content">C:\Windows\system32> <div class="code" data-tooltip="tooltip3">slmgr /skms kms.eallion.com</div>
+          <div id="tooltip3" class="tooltip">设置服务器为 kms.eallion.com <button class="copy-button" type="button"
+              onclick="copyToClipboard('slmgr /skms kms.eallion.com')">复制命令</button></div>
+        </div>
+        <div class="content">C:\Windows\system32> <div class="code" data-tooltip="tooltip4">slmgr /ato</div>
+          <div id="tooltip4" class="tooltip">激活 Windows。<button class="copy-button" type="button"
+              onclick="copyToClipboard('slmgr /ato')">复制命令</button></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="notepad">
+      <div class="head">
+        <div class="left container">
+          <img src="assets/notepad.jpg" alt>
+          <span>💡[教程] 激活方法 - 记事本<span>
+        </div>
+        <div class="right container">
+            <span id="minimize" class="material-icons"><img src="assets/minimize.svg" alt></span>
+            <span class="material-icons"><img src="assets/maximize.svg" alt></span>
+            <span id="close" class="material-icons"><img src="assets/close.svg" alt></span>
+        </div>
+      </div>
+      <div class="toolbar">
+        <span>文件</span><span>编辑</span><span>格式</span><span>查看</span><span>帮助</span>
+      </div>
+      <textarea aria-label="notepad">
+使用方法:
+
+💡激活 Windows
+
+如果你的 Windows 是 VL 版本，那么只要在管理员权限的 cmd 或者 powershell 中执行下面两个命令就可以了。
+      
+执行完第一个命令后要等弹出提示窗，期间电脑必须联网。
+      
+  slmgr /skms kms.eallion.com
+      
+  slmgr /ato
+      
+如果不是 VL 版本的，那么需要更换密钥获取你对应版本的 KEY，操作如下：
+      
+运行以下命令查看系统版本：
+      
+  wmic os get caption
+      
+在文末找到对应的 key，在管理员权限的 cmd 或者 powershell 中执行下面命令安装 key：
+      
+  slmgr /ipk xxxxx-xxxxx-xxxxx-xxxxx
+      
+然后跟上面说的一样设置 kms 服务器地址，激活.
+      
+例如：新装windows10企业版之后如何激活
+      
+如果你是新装的或者已经安装好了windows10企业版那么只需要复制下面命令在直接管理员权限的cmd或者powershell中执行即可。
+      
+  slmgr.vbs /upk
+      
+  slmgr /ipk NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J
+      
+  slmgr /skms kms.eallion.com
+      
+  slmgr /ato
+
+使用命令 slmgr /dlv 可以查看激活信息。
+
+所有 Windows 版本的密钥管理服务 (KMS) 客户端激活和产品密钥：
+
+https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys
+      </textarea>
+      <div class="bottom-toolbar">
+        <div></div>
+        <div>Ln 1, Col 1</div>
+        <div> 100%</div>
+        <div>Windows (CRLF)</div>
+        <div>UTF-8</div>
       </div>
     </div>
   <script src="assets/script.js" charset="utf-8"></script>

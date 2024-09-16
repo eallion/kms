@@ -7,29 +7,121 @@
     <link rel="shortcut icon" href="assets/favicon.ico" />
   </head>
   <body class="default-theme">
+        <!-- 半透明背景层 -->
+        <div class="overlay" id="overlay"></div>
+  
+        <!-- 提示信息框 -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+              <p>本站是非官方 VL 版本的 Office 系统批量激活服务。</p>
+              <p>【免费】本服务完全免费，<code>telnet kms.eallion.com 1688</code> 检测是否可用。</p>
+              <p>请用官方 <a href="https://www.microsoft.com/en-us/download/details.aspx?id=49117" target="_blank" rel="noopener noreferrer">Office Deployment Tool</a> 部署原版 Office，或使用 <a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener noreferrer">Office Tool Plus</a> 安装。</p>
+              <p>批量激活的 Key 请从 🔑 <a href="https://learn.microsoft.com/zh-cn/office/volume-license-activation/gvlks"
+                  target="_blank" rel="noopener noreferrer" title="KMS 客户端安装密钥" alt="KMS 客户端安装密钥">volume-license-activation</a>
+                获取。</p>
+              <p>建议购买正版 Office：👉 <a href="https://lizhi.shop/site/products/id/65?cid=1ad8oejz"
+                target="_blank" rel="noopener noreferrer" title="正版 Windows" alt="正版 Windows">lizhi.shop</a></p>
+          </div>
+          <button id="confirmBtn" type="button">确定</button>
+        </div>
+
     <div class="terminal">
       <div class="os-title">
-        <img src="assets/terminal.svg" alt>
-        <p>管理员：命令提示符</p>
+        <div class="os-title-logo">
+          <img src="assets/terminal.svg" alt>
+          <p>管理员：命令提示符</p>
+        </div>
+        <div class="os-title-tips">
+          <div id="tips" class="tips">💡[教程] 激活方法</div>
+          <div class="">/ 去激活 <a href="/index.html" target="_self" title="去激活 Windows" alt="去激活 Windows">Windows</a></div>
+        </div>
       </div>
+
       <div class="os-info"></div>
         <!-- The .line will be created here -->
+
       <div class="container">
-        C:\Windows\system32> cd "C:\Program Files\Microsoft Office\Office16"<br>
-        <br>
-        C:\Program Files\Microsoft Office\Office16> cscript ospp.vbs /inpkey:<a href="https://technet.microsoft.com/zh-cn/library/dn385360(v=office.16).aspx" target="_blank" rel="noopener" title="KMS 客户端安装密钥" alt="KMS 客户端安装密钥">XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99</a> <br>
-        <br>
-        C:\Program Files\Microsoft Office\Office16> cscript ospp.vbs /sethst:kms.eallion.com <br>
-        <br>
-        C:\Program Files\Microsoft Office\Office16> cscript ospp.vbs /act<br>
-        <br>
-        C:\Program Files\Microsoft Office\Office16> popd<br>
-        <br>
-        C:\Windows\system32> ls<br>
-        <span>'ls' 不是内部或外部命令，也不是可运行的程序或批处理文件。输入 help 查看可用命令。去激活 <a href="/index.html" target="_self" title="KMS 客户端安装密钥" alt="KMS 客户端安装密钥"> Windows</a></span><br>
-        <br>
+        <div class="content">C:\Windows\system32> <div class="code" data-tooltip="tooltip1">cd "C:\Program Files\Microsoft Office\Office16"</div>
+          <div id="tooltip1" class="tooltip tooltip_office">进入 Office 目录。<button class="copy-button" type="button"
+              onclick="copyToClipboard('cd &quot;C:\\Program Files\\Microsoft Office\\Office16&quot;')">复制命令</button></div>
+        </div>
+        <div class="content">C:\Program Files\Microsoft Office\Office16> <div class="code" data-tooltip="tooltip2">cscript ospp.vbs /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99</div>
+          <div id="tooltip2" class="tooltip tooltip_office">安装 Key。获取 Key：<a
+            href="https://learn.microsoft.com/zh-cn/office/volume-license-activation/gvlks" target="_blank"
+            rel="noopener" title="KMS 客户端安装密钥" alt="KMS 客户端安装密钥">volume-license-activation</a><button class="copy-button" type="button"
+              onclick="copyToClipboard('cscript ospp.vbs /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99')">复制命令</button></div>
+        </div>
+        <div class="content">C:\Program Files\Microsoft Office\Office16> <div class="code" data-tooltip="tooltip3">cscript ospp.vbs /sethst:kms.eallion.com</div>
+          <div id="tooltip3" class="tooltip tooltip_office">设置服务器为 kms.eallion.com <button class="copy-button" type="button"
+              onclick="copyToClipboard('cscript ospp.vbs /sethst:kms.eallion.com')">复制命令</button></div>
+        </div>
+        <div class="content">C:\Program Files\Microsoft Office\Office16> <div class="code" data-tooltip="tooltip4">cscript ospp.vbs /act</div>
+          <div id="tooltip4" class="tooltip tooltip_office">激活 Office。<button class="copy-button" type="button"
+              onclick="copyToClipboard('cscript ospp.vbs /act')">复制命令</button></div>
+        </div>
+      </div>
+
+    </div>
+    
+  <div class="notepad">
+    <div class="head">
+      <div class="left container">
+        <img src="assets/notepad.jpg" alt>
+        <span>💡[教程] 激活方法 - 记事本<span>
+      </div>
+      <div class="right container">
+        <span id="minimize" class="material-icons"><img src="assets/minimize.svg" alt></span>
+        <span class="material-icons"><img src="assets/maximize.svg" alt></span>
+        <span id="close" class="material-icons"><img src="assets/close.svg" alt></span>
       </div>
     </div>
+    <div class="toolbar">
+      <span>文件</span><span>编辑</span><span>格式</span><span>查看</span><span>帮助</span>
+    </div>
+    <textarea aria-label="notepad">
+使用方法:
+
+💡激活 Office
+
+（说明：新版 Office 部署会涉及到一些专业工具，建议使用 Office Tool Plus: https://otp.landian.vip/zh-cn/ 激活服务器用 kms.eallion.com 即可。）
+
+
+你安装的 Office 必须是 VOL 版本，否则无法激活。
+
+可以从 msdn.itellyou.cn 上下载。
+
+在管理员权限的 cmd 或者 powershell 中执行下面命令，进入 32或64 位 Office 2016 的安装目录。
+
+（根据你安装的office是32位还是64位进入其中一个目录就可以了）：
+
+32位执行如下命令：
+
+  cd "C:\Program Files (x86)\Microsoft Office\Office16"
+
+64位执行如下命令：
+
+  cd "C:\Program Files\Microsoft Office\Office16"
+
+在管理员权限的 cmd 或者 powershell 中执行下面两个命令。执行完第一个命令后要等待命令行出现反馈提示，期间电脑必须联网。
+
+  cscript ospp.vbs /sethst:kms.eallion.com
+
+  cscript ospp.vbs /act
+
+如果提示看到 successful 的字样，那么就是激活成功了，重新打开 office 就好。
+
+用于基于 KMS 和 Active Directory 的 Office、Project 和 Visio 激活的 GVLK：
+
+https://learn.microsoft.com/zh-cn/office/volume-license-activation/gvlks
+    </textarea>
+    <div class="bottom-toolbar">
+      <div></div>
+      <div>Ln 1, Col 1</div>
+      <div> 100%</div>
+      <div>Windows (CRLF)</div>
+      <div>UTF-8</div>
+    </div>
+  </div>
   <script src="assets/script.js" charset="utf-8"></script>
   </body>
 </html>

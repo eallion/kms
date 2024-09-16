@@ -1,5 +1,5 @@
 const OperatingSystem = {
-  version: "Microsoft Windows [版本 10.0.22631.3593]",
+  version: "Microsoft Windows [版本 10.0.22631.4169]",
   copyRight: "(c) Microsoft Corportion. 保留所有权利。"
 }
 
@@ -12,26 +12,26 @@ var Terminal = {
   instanceNumber: 1
 }
 const Color = {
-  hex0:	"rgb(0, 0, 0)", //Preto
-  hex1:	"rgb(0, 0, 128)", //Azul
-  hex2:	"rgb(0, 128, 0)", //Verde
-  hex3:	"rgb(0, 128, 128)", //Verde-água
-  hex4:	"rgb(128, 0, 0)", //Vermelho
-  hex5:	"rgb(128, 0, 128)", //Roxo
-  hex6:	"rgb(128, 128, 0)", //Amarelo
-  hex7:	"rgb(192, 192, 192)", //Branco
-  hex8:	"rgb(128, 128, 128)", //Cinza
-  hex9:	"rgb(0, 0, 255)", //Azul claro
-  hexA:	"rgb(0, 255, 0)", //Verde claro
-  hexB:	"rgb(0, 255, 255)", //Verde-água claro
-  hexC:	"rgb(255, 0, 0)", //Vermelho claro
-  hexD:	"rgb(255, 0, 255)", //Lilás
-  hexE:	"rgb(255, 255, 0)", //Amarelo claro
-  hexF:	"rgb(255, 255, 255)" //Branco brilhante
+  hex0: "rgb(0, 0, 0)", //Preto
+  hex1: "rgb(0, 0, 128)", //Azul
+  hex2: "rgb(0, 128, 0)", //Verde
+  hex3: "rgb(0, 128, 128)", //Verde-água
+  hex4: "rgb(128, 0, 0)", //Vermelho
+  hex5: "rgb(128, 0, 128)", //Roxo
+  hex6: "rgb(128, 128, 0)", //Amarelo
+  hex7: "rgb(192, 192, 192)", //Branco
+  hex8: "rgb(128, 128, 128)", //Cinza
+  hex9: "rgb(0, 0, 255)", //Azul claro
+  hexA: "rgb(0, 255, 0)", //Verde claro
+  hexB: "rgb(0, 255, 255)", //Verde-água claro
+  hexC: "rgb(255, 0, 0)", //Vermelho claro
+  hexD: "rgb(255, 0, 255)", //Lilás
+  hexE: "rgb(255, 255, 0)", //Amarelo claro
+  hexF: "rgb(255, 255, 255)" //Branco brilhante
 }
 // ------------------------------------------------------------------------ //
 var osInfo = OperatingSystem.version + newLine() +
-             OperatingSystem.copyRight + newLine();
+  OperatingSystem.copyRight + newLine();
 //Ex: C:\Windows\system32>
 var path = Terminal.driverLetter + ":\\" + Terminal.directory + ">";
 
@@ -126,7 +126,7 @@ function help() {
     "VER" + nbsp(12) + "Displays the Windows version." + newLine() +
     "" + newLine() +
     "For more information on tools, refer to the command line reference in the online help..." + newLine()
-    execute();
+  execute();
 }
 function cd() {
   let directory = Terminal.input.split(" ")[1];
@@ -252,7 +252,7 @@ function exit() {
 }
 function newTerminalInstance() {
   osInfo = OperatingSystem.version + newLine() +
-           OperatingSystem.copyRight;
+    OperatingSystem.copyRight;
   Terminal.input += newLine() + osInfo;
   Terminal.instanceNumber++;
   document.title += " - cmd";
@@ -326,6 +326,63 @@ function listening() {
     }
   });
 }
+
+// 显示提示信息
+document.getElementById('overlay').style.display = 'block';
+document.getElementById('modal').style.display = 'block';
+
+// 点击确定按钮关闭提示信息
+document.getElementById('confirmBtn').addEventListener('click', function () {
+  document.getElementById('overlay').style.display = 'none';
+  document.getElementById('modal').style.display = 'none';
+});
+
+function copyToClipboard(text) {
+  const tempInput = document.createElement("input");
+  tempInput.value = text;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempInput);
+}
+function copyToClipboard(text) {
+  const tempInput = document.createElement("input");
+  tempInput.value = text;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempInput);
+}
+
+document.getElementById('tips').addEventListener('click', function () {
+  const terminal = document.querySelector('.terminal');
+  const notepad = document.querySelector('.notepad');
+
+  if (terminal.style.display !== 'none') {
+    terminal.style.display = 'none';
+    notepad.style.display = 'block';
+  }
+});
+
+document.getElementById('close').addEventListener('click', function () {
+  const terminal = document.querySelector('.terminal');
+  const notepad = document.querySelector('.notepad');
+
+  if (notepad.style.display !== 'none') {
+    terminal.style.display = 'block';
+    notepad.style.display = 'none';
+  }
+});
+
+document.getElementById('minimize').addEventListener('click', function () {
+  const terminal = document.querySelector('.terminal');
+  const notepad = document.querySelector('.notepad');
+
+  if (notepad.style.display !== 'none') {
+    terminal.style.display = 'block';
+    notepad.style.display = 'none';
+  }
+});
 
 // Chamadas de início
 updateOsInfo();
