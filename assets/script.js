@@ -336,6 +336,10 @@ document.getElementById('confirmBtn').addEventListener('click', function () {
   document.getElementById('overlay').style.display = 'none';
   document.getElementById('modal').style.display = 'none';
 });
+document.getElementById('closeBtn').addEventListener('click', function () {
+  document.getElementById('overlay').style.display = 'none';
+  document.getElementById('modal').style.display = 'none';
+});
 
 function copyToClipboard(text) {
   const tempInput = document.createElement("input");
