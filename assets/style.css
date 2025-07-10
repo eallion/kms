@@ -389,6 +389,10 @@ textarea:focus {
   align-items: center;
 }
 
+.modal-content a {
+  margin: 0 0.25rem;
+}
+
 .modal-content p code {
   padding: .2em .4em;
   margin: 0 0.25rem;
@@ -403,8 +407,9 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  margin: 0 0.125rem;
+  margin-left: 0.125rem;
   margin-bottom: -0.125rem;
+  margin-right: -0.25rem;
 }
 
 @media (max-width: 1366px) {
